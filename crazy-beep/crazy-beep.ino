@@ -11,6 +11,8 @@ void setup() {
   // setup pins
   pinMode(analog_random_pin, INPUT);
   pinMode(beep_pin, OUTPUT);
+
+  Serial.begin(9600);
   
   digitalWrite(beep_pin,LOW);
 
@@ -19,6 +21,11 @@ void setup() {
 
   // delay 1 minute to flash ... u can't flash on deep sleep
   // delay(1000 * 60);
+
+  // delay init, if u activate multiple beeps at the same time
+  delay_minutes(random(0,20));
+  
+    Serial.println("start");
 }
 
 void beep_times(int times){
@@ -40,11 +47,18 @@ void beep(){
 
 }
 
-int minuten(int mi){
-  return 1000 * 60 * mi;
+void delay_minutes(int mi){
+    Serial.println(mi);
+  while(mi-- > 0){
+    delay(60000);
+    Serial.println(mi);
+  }
+
+  // delay random secound
+  delay(random(0,60000));
 }
 
 void loop() {
-  delay(random(minuten(30),minuten(50)));
+  delay_minutes(random(1,5));
   beep_times(random(1,4));
 }
