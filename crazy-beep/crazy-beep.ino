@@ -1,6 +1,6 @@
 // define pins
 const int analog_random_pin = A0;
-const int beep_pin = 13;
+const int beep_pin = 5;
 
 
 // define livetime
