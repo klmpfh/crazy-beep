@@ -18,11 +18,7 @@ void setup() {
   // setup random random()
   randomSeed(analogRead(analog_random_pin));
 
-  // delay 1 minute to flash ... u can't flash on deep sleep
-  // delay(1000 * 60);
 
-  // delay init, if u activate multiple beeps at the same time
-  delay_minutes(random(0,20));
   analogWrite(beep_pin,1);
   delay(200);
   analogWrite(beep_pin,0);
