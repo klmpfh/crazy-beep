@@ -54,6 +54,6 @@ void delay_minutes(int mi){
 }
 
 void loop() {
-  delay_minutes(random(1,5));
-  beep_times(random(1,4));
+  delay_minutes(random(3,8));
+  beep_times(random(3,8));
 }
