@@ -11,19 +11,17 @@ void setup() {
   // setup pins
   pinMode(analog_random_pin, INPUT);
   pinMode(beep_pin, OUTPUT);
-
-  Serial.begin(9600);
   
-
   // setup random random()
   randomSeed(analogRead(analog_random_pin));
 
+  Serial.begin(9600);
 
   analogWrite(beep_pin,1);
   delay(200);
   analogWrite(beep_pin,0);
   
-    Serial.println("start");
+  Serial.println("start");
 }
 
 void beep_times(int times){
