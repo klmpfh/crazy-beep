@@ -22,6 +22,9 @@ void setup() {
   analogWrite(beep_pin,0);
   
   Serial.println("start");
+
+  // init delay ...
+  delay_minutes(random(15,30));
 }
 
 void beep_times(int times){
