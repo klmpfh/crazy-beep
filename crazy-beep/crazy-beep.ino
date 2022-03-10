@@ -36,14 +36,10 @@ void beep_times(int times){
 
 void beep(){
 
-  const int us = random(110,150);
-  
-  for(int i = 0 ; i < 250 ; i++){
-    digitalWrite(beep_pin,HIGH);
-    delayMicroseconds(us);
-    digitalWrite(beep_pin,LOW);
-    delayMicroseconds(us);
-  }
+  analogWrite(beep_pin,random(1,254));
+  delay(random(20,250));
+  analogWrite(beep_pin,0);
+  delay(30);
 
 }
 
