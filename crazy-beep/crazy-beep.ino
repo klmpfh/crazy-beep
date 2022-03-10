@@ -14,7 +14,6 @@ void setup() {
 
   Serial.begin(9600);
   
-  digitalWrite(beep_pin,LOW);
 
   // setup random random()
   randomSeed(analogRead(analog_random_pin));
@@ -24,6 +23,9 @@ void setup() {
 
   // delay init, if u activate multiple beeps at the same time
   delay_minutes(random(0,20));
+  analogWrite(beep_pin,1);
+  delay(200);
+  analogWrite(beep_pin,0);
   
     Serial.println("start");
 }
