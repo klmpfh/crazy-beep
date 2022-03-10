@@ -17,29 +17,34 @@ void setup() {
 
   Serial.begin(9600);
 
-  analogWrite(beep_pin,1);
-  delay(200);
+  analogWrite(beep_pin,2);
+  delay(100);
   analogWrite(beep_pin,0);
   
   Serial.println("start");
 
   // init delay ...
-  delay_minutes(random(15,30));
+  delay_minutes(10);
 }
 
 void beep_times(int times){
   for(int i = 0 ; i < times ; i++){
     beep();
+    delay(200);
   }
 }
 
+void nerv(){
+  beep_times(random(2,3));
+}
+
 void beep(){
-
-  analogWrite(beep_pin,random(1,254));
-  delay(random(20,250));
-  analogWrite(beep_pin,0);
-  delay(30);
-
+  for( int i = 0 ; i < 200 ; i++){
+    analogWrite(beep_pin,255);
+    delayMicroseconds(222);
+    analogWrite(beep_pin,0);
+    delayMicroseconds(222);
+  }
 }
 
 void delay_minutes(int mi){
@@ -55,5 +60,5 @@ void delay_minutes(int mi){
 
 void loop() {
   delay_minutes(random(3,8));
-  beep_times(random(3,8));
+  nerv();
 }
